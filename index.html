@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you be my Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Comic Sans MS', cursive;
+            background-color: #add8e6;
+            margin-top: 50px;
+            background-image: url('webarebear.png');
+            background-size: cover;
+            background-position: center;
+            transition: background-color 2s ease-in-out;
+        }
+        h1 {
+            color: black;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        #yes {
+            background-color: #87cefa;
+            color: black;
+        }
+        #no {
+            position: absolute;
+            background-color: #87cefa;
+            color: black;
+        }
+        .heart {
+            position: fixed;
+            color: red;
+            font-size: 20px;
+            animation: float 3s linear infinite;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine?</h1>
+    <div class="button-container">
+        <button id="yes" onclick="showMessage()">Yes</button>
+        <button id="no" onmouseover="moveNoButton()">No</button>
+    </div>
+    <p id="message" style="font-size: 20px; font-weight: bold; color: black;"></p>
+    
+    <script>
+        function showMessage() {
+            document.getElementById('message').innerText = "Yay 💗 Thanks Pookie !";
+            document.getElementById('yes').disabled = true;
+            document.getElementById('no').style.display = 'none';
+            document.body.style.backgroundColor = '#ffb6c1'; // Change to soft pink
+            launchHearts();
+        }
+        
+        function moveNoButton() {
+            let noButton = document.getElementById('no');
+            let x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            let y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            noButton.style.left = x + 'px';
+            noButton.style.top = y + 'px';
+        }
+        
+        function launchHearts() {
+            for (let i = 0; i < 30; i++) {
+                let heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.top = "100vh";
+                heart.style.fontSize = Math.random() * 20 + 10 + "px";
+                heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+    </script>
+</body>
+</html>
