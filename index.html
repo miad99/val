@@ -1,99 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will you be my Valentine?</title>
-    <style>
-        body {
-            text-align: center;
-            font-family: 'Comic Sans MS', cursive;
-            background-color: #add8e6;
-            margin-top: 50px;
-            background-image: url('webarebear.png');
-            background-size: cover;
-            background-position: center;
-            transition: background-color 2s ease-in-out;
-        }
-        h1 {
-            color: black;
-        }
-        .button-container {
-            margin-top: 20px;
-        }
-        button {
-            font-size: 18px;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px;
-            font-weight: bold;
-        }
-        #yes {
-            background-color: #87cefa;
-            color: black;
-        }
-        #no {
-            position: absolute;
-            background-color: #87cefa;
-            color: black;
-        }
-        .heart {
-            position: fixed;
-            color: red;
-            font-size: 20px;
-            animation: float 3s linear infinite;
-        }
-        @keyframes float {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) scale(1.5);
-                opacity: 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mia Duong - Data Science Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Will you be my Valentine?</h1>
-    <div class="button-container">
-        <button id="yes" onclick="showMessage()">Yes</button>
-        <button id="no" onmouseover="moveNoButton()">No</button>
+
+<header>
+  <nav>
+    <h1>Mia Duong</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="hero">
+  <h2>Hi, I'm Mia Duong</h2>
+  <p>Data Science Enthusiast | Analytics | Machine Learning | Dashboards</p>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>Data Science major with a minor in Computer Science, passionate about transforming raw data into actionable insights. Experienced in data visualization, predictive modeling, and optimization solutions for business and healthcare.</p>
+</section>
+
+<section id="skills">
+  <h2>Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="skill">Python (Pandas, NumPy, Scikit-Learn)</div>
+    <div class="skill">R</div>
+    <div class="skill">SQL & Databases</div>
+    <div class="skill">Tableau & Power BI</div>
+    <div class="skill">Machine Learning</div>
+    <div class="skill">Data Visualization</div>
+    <div class="skill">Linear Programming / Optimization</div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <img src="images/healthcare-dashboard.png" alt="Healthcare Analytics Dashboard">
+      <h3>Healthcare Analytics Dashboard</h3>
+      <p><strong>Objective:</strong> Analyze patient wait times and provider utilization to improve hospital efficiency.</p>
+      <p><strong>Tools:</strong> Tableau, Excel, SQL</p>
+      <ul>
+        <li>Interactive dashboard by department and date range</li>
+        <li>Conditional formatting & alerts for high wait times & utilization</li>
+        <li>Filters for provider, department, and date</li>
+      </ul>
+      <p><strong>Outcome:</strong> Reduced average wait time by 15% in high-traffic departments.</p>
     </div>
-    <p id="message" style="font-size: 20px; font-weight: bold; color: black;"></p>
-    
-    <script>
-        function showMessage() {
-            document.getElementById('message').innerText = "Yay 💗 Thanks Pookie !";
-            document.getElementById('yes').disabled = true;
-            document.getElementById('no').style.display = 'none';
-            document.body.style.backgroundColor = '#ffb6c1'; // Change to soft pink
-            launchHearts();
-        }
-        
-        function moveNoButton() {
-            let noButton = document.getElementById('no');
-            let x = Math.random() * (window.innerWidth - noButton.offsetWidth);
-            let y = Math.random() * (window.innerHeight - noButton.offsetHeight);
-            noButton.style.left = x + 'px';
-            noButton.style.top = y + 'px';
-        }
-        
-        function launchHearts() {
-            for (let i = 0; i < 30; i++) {
-                let heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.innerHTML = '❤️';
-                heart.style.left = Math.random() * 100 + "vw";
-                heart.style.top = "100vh";
-                heart.style.fontSize = Math.random() * 20 + 10 + "px";
-                heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
-                document.body.appendChild(heart);
-                setTimeout(() => heart.remove(), 3000);
-            }
-        }
-    </script>
+
+    <div class="project-card">
+      <img src="images/sales-forecast.png" alt="Sales Forecasting Model">
+      <h3>Sales Forecasting Model</h3>
+      <p><strong>Objective:</strong> Predict monthly sales to optimize inventory and reduce stockouts.</p>
+      <p><strong>Tools:</strong> Python (Pandas, NumPy), ARIMA, Prophet</p>
+      <ul>
+        <li>Time-series forecasting using ARIMA & Prophet</li>
+        <li>Visual comparison of predicted vs actual sales</li>
+        <li>Model evaluation with RMSE & MAPE</li>
+      </ul>
+      <p><strong>Outcome:</strong> Improved inventory planning, reducing overstock by 20%.</p>
+    </div>
+
+    <div class="project-card">
+      <img src="images/retail-optimization.png" alt="Retail Workforce Optimization">
+      <h3>Retail Workforce Optimization</h3>
+      <p><strong>Objective:</strong> Optimize staffing schedules to minimize labor cost while meeting customer demand.</p>
+      <p><strong>Tools:</strong> Python, PuLP (Linear Programming), Excel</p>
+      <ul>
+        <li>Optimized workforce schedules based on forecasted demand</li>
+        <li>Scenario analysis for peak shopping periods</li>
+        <li>Staffing alerts when below minimum thresholds</li>
+      </ul>
+      <p><strong>Outcome:</strong> Reduced labor cost by 12% while maintaining service levels.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:your-email@gmail.com">your-email@gmail.com</a></p>
+  <p>LinkedIn: <a href="#">linkedin.com/in/username</a></p>
+  <p>GitHub: <a href="#">github.com/username</a></p>
+</section>
+
+<footer>
+  <p>© 2025 Mia Duong — Data Science Portfolio</p>
+</footer>
+
 </body>
 </html>
